@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cl.exe - Build and debug active file",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\CodeBlocks - teste\\teste2\\teste2.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}\\CodeBlocks - teste\\teste2",
+            "environment": [],
+            "console": "externalTerminal",
+            "preLaunchTask": "C/C++: cl.exe construir projeto completo"
+        }
+    ]
+}

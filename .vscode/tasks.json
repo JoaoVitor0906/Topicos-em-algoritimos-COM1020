@@ -1,18 +1,15 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: cl.exe arquivo de build ativo",
-            "command": "cl.exe",
+            "type": "shell",
+            "label": "C/C++: cl.exe construir projeto completo",
+            "command": "cmd.exe",
             "args": [
-                "/Zi",
-                "/EHsc",
-                "/nologo",
-                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${file}"
+                "/c",
+                "cd /d \"${workspaceFolder}\\CodeBlocks - teste\\teste2\" && cl.exe /Zi /EHsc /nologo /I\"include\" /Fe\"teste2.exe\" main.cpp \"bibliotecas\\algoritmos.cpp\" \"bibliotecas\\gerador.cpp\" \"bibliotecas\\benchmark.cpp\""
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}\\CodeBlocks - teste\\teste2"
             },
             "problemMatcher": [
                 "$msCompile"
@@ -21,7 +18,7 @@
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Tarefa gerada pelo Depurador."
+            "detail": "Compila todos os arquivos-fonte do projeto com estrutura de biblioteca."
         }
     ],
     "version": "2.0.0"

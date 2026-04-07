@@ -31,8 +31,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="include" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="include/tipos.h" />
+		<Unit filename="include/algoritmos.h" />
+		<Unit filename="include/gerador.h" />
+		<Unit filename="include/benchmark.h" />
+		<Unit filename="bibliotecas/algoritmos.cpp" />
+		<Unit filename="bibliotecas/gerador.cpp" />
+		<Unit filename="bibliotecas/benchmark.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
