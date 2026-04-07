@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1774376517 source:c:\users\utfpr\documents\codeblocks - teste\teste2\main.cpp
+	<iostream>
+	<vector>
+	<chrono>
+	<random>
+	<algorithm>
+	<iomanip>
+	<numeric>
+	<functional>
+
+1774979500 source:c:\users\utfpr\downloads\atv - tópicos em algoritimos-20260331t174450z-1-001\atv - tópicos em algoritimos\codeblocks - teste\teste2\main.cpp
+	<iostream>
+	<vector>
+	<chrono>
+	<random>
+	<algorithm>
+	<iomanip>
+	<numeric>
+	<functional>
+
