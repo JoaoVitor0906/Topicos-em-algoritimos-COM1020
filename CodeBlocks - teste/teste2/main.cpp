@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 #include "include/algoritmos.h"
 #include "include/benchmark.h"
 #include "include/tipos.h"
@@ -26,5 +27,6 @@ int main() {
         imprimirSeparador();
     }
 
+    system("pause");
     return 0;
 }

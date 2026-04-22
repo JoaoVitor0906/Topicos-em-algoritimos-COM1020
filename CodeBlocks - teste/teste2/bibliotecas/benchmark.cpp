@@ -36,7 +36,7 @@ void imprimirCabecalho() {
 void imprimirMaquina() {
     cout << "========================================================\n";
     cout << "CARACTERISTICAS DA MAQUINA:\n";
-    cout << "-> CPU: Intel(R) Core(TM) i5-14500T (1.70 GHz)\n";
+    cout << "-> CPU: Intel(R) Core(TM) i7-7700T (2.90 GHz)\n";
     cout << "-> RAM: 16GB\n";
     cout << "-> SO:  Windows 11\n";
     cout << "========================================================\n\n";
