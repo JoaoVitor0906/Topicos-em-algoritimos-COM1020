@@ -18,18 +18,18 @@ string obterNomeOrdem(TipoOrdem tipo) {
 }
 
 void imprimirSeparador() {
-    cout << string(105, '-') << "\n";
+    cout << string(86, '-') << "\n";
 }
 
 void imprimirCabecalho() {
     imprimirSeparador();
-    cout << left << setw(16) << "Algoritmo"
-         << right << setw(10) << "Tamanho"
-         << right << setw(15) << "Ordem"
-         << right << setw(14) << "Tempo (ms)"
-         << right << setw(16) << "Comparacoes"
-         << right << setw(16) << "Trocas"
-         << right << setw(18) << "Total Operacoes" << "\n";
+    cout << left << setw(14) << "Algoritmo"
+         << right << setw(7) << "Tam"
+         << right << setw(11) << "Ordem"
+         << right << setw(12) << "Tempo"
+         << right << setw(10) << "Comp"
+         << right << setw(10) << "Trocas"
+         << right << setw(12) << "Ops" << "\n";
     imprimirSeparador();
 }
 
@@ -75,10 +75,10 @@ void executarBenchmark(string nomeAlgoritmo,
     double mediaTempoMs = totalTempoMs / numRodadas;
 
     cout << left << setw(16) << nomeAlgoritmo
-         << right << setw(10) << tamanho
-         << right << setw(15) << obterNomeOrdem(ordem)
-         << right << setw(14) << fixed << setprecision(3) << mediaTempoMs
-         << right << setw(16) << mediaComps
-         << right << setw(16) << mediaSwaps
-         << right << setw(18) << totalOperacoes << "\n";
+            << right << setw(7) << tamanho
+            << right << setw(11) << obterNomeOrdem(ordem)
+            << right << setw(12) << fixed << setprecision(3) << mediaTempoMs
+            << right << setw(10) << mediaComps
+            << right << setw(10) << mediaSwaps
+            << right << setw(12) << totalOperacoes << "\n";
 }

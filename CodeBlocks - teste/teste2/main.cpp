@@ -20,6 +20,8 @@ int main() {
             executarBenchmark("InsertionSort", insertionSort, tamanho, ordem);
             executarBenchmark("ShellSort", shellSort, tamanho, ordem);
             executarBenchmark("QuickSort", quickSort, tamanho, ordem);
+            executarBenchmark("MergeSort", mergeSort, tamanho, ordem);
+            executarBenchmark("RadixSort", radixSort, tamanho, ordem);
         }
         imprimirSeparador();
     }

@@ -104,3 +104,87 @@ void quickSort(std::vector<int>& arr, long long& comps, long long& swaps) {
     swaps = 0;
     quickSortHelper(arr, 0, arr.size() - 1, comps, swaps);
 }
+
+void merge(std::vector<int>& arr, int left, int mid, int right, std::vector<int>& temp, long long& comps, long long& swaps) {
+    int i = left;
+    int j = mid + 1;
+    int k = left;
+
+    while (i <= mid && j <= right) {
+        comps++;
+        if (arr[i] <= arr[j]) {
+            temp[k++] = arr[i++];
+        } else {
+            temp[k++] = arr[j++];
+        }
+        swaps++;
+    }
+
+    while (i <= mid) {
+        temp[k++] = arr[i++];
+        swaps++;
+    }
+
+    while (j <= right) {
+        temp[k++] = arr[j++];
+        swaps++;
+    }
+
+    for (int idx = left; idx <= right; ++idx) {
+        arr[idx] = temp[idx];
+        swaps++;
+    }
+}
+
+void mergeSortHelper(std::vector<int>& arr, int left, int right, std::vector<int>& temp, long long& comps, long long& swaps) {
+    if (left >= right) return;
+
+    int mid = left + (right - left) / 2;
+    mergeSortHelper(arr, left, mid, temp, comps, swaps);
+    mergeSortHelper(arr, mid + 1, right, temp, comps, swaps);
+    merge(arr, left, mid, right, temp, comps, swaps);
+}
+
+void mergeSort(std::vector<int>& arr, long long& comps, long long& swaps) {
+    if (arr.empty()) return;
+    comps = 0;
+    swaps = 0;
+
+    std::vector<int> temp(arr.size());
+    mergeSortHelper(arr, 0, static_cast<int>(arr.size()) - 1, temp, comps, swaps);
+}
+
+void radixSort(std::vector<int>& arr, long long& comps, long long& swaps) {
+    if (arr.empty()) return;
+
+    comps = 0;
+    swaps = 0;
+
+    int maxValue = *std::max_element(arr.begin(), arr.end());
+    std::vector<int> output(arr.size());
+
+    for (int exp = 1; maxValue / exp > 0; exp *= 10) {
+        int count[10] = {0};
+
+        for (int value : arr) {
+            count[(value / exp) % 10]++;
+            comps++;
+        }
+
+        for (int i = 1; i < 10; ++i) {
+            count[i] += count[i - 1];
+        }
+
+        for (int i = static_cast<int>(arr.size()) - 1; i >= 0; --i) {
+            int digit = (arr[i] / exp) % 10;
+            output[count[digit] - 1] = arr[i];
+            count[digit]--;
+            swaps++;
+        }
+
+        for (int i = 0; i < static_cast<int>(arr.size()); ++i) {
+            arr[i] = output[i];
+            swaps++;
+        }
+    }
+}
