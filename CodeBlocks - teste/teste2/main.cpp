@@ -23,6 +23,7 @@ int main() {
             executarBenchmark("QuickSort", quickSort, tamanho, ordem);
             executarBenchmark("MergeSort", mergeSort, tamanho, ordem);
             executarBenchmark("RadixSort", radixSort, tamanho, ordem);
+            executarBenchmark("Heapsort", heapsort, tamanho, ordem);
         }
         imprimirSeparador();
     }

@@ -188,3 +188,58 @@ void radixSort(std::vector<int>& arr, long long& comps, long long& swaps) {
         }
     }
 }
+
+// Função auxiliar para heapify (peneirar para baixo)
+void heapify(std::vector<int>& arr, int n, int i, long long& comps, long long& swaps) {
+    int largest = i;
+    int left = 2 * i + 1;      // Filho esquerdo
+    int right = 2 * i + 2;     // Filho direito
+
+    // Comparar com filho esquerdo
+    if (left < n) {
+        comps++;
+        if (arr[left] > arr[largest]) {
+            largest = left;
+        }
+    }
+
+    // Comparar com filho direito
+    if (right < n) {
+        comps++;
+        if (arr[right] > arr[largest]) {
+            largest = right;
+        }
+    }
+
+    // Se o maior não é o nó atual, trocar e continuar heapificando
+    if (largest != i) {
+        std::swap(arr[i], arr[largest]);
+        swaps++;
+        heapify(arr, n, largest, comps, swaps);
+    }
+}
+
+// Implementação do Heapsort
+void heapsort(std::vector<int>& arr, long long& comps, long long& swaps) {
+    if (arr.empty()) return;
+
+    comps = 0;
+    swaps = 0;
+
+    int n = arr.size();
+
+    // Fase 1: Construir o max heap (operação de heapify de baixo para cima)
+    for (int i = (n / 2) - 1; i >= 0; i--) {
+        heapify(arr, n, i, comps, swaps);
+    }
+
+    // Fase 2: Extrair elementos do heap um a um
+    for (int i = n - 1; i > 0; i--) {
+        // Mover a raiz (maior elemento) para o final
+        std::swap(arr[0], arr[i]);
+        swaps++;
+
+        // Heapificar a raiz reduzida
+        heapify(arr, i, 0, comps, swaps);
+    }
+}
